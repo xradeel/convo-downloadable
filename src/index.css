@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/**
+ * Editorial print palette: paper, ink, hairline rules, and the two stage
+ * colours the performers are lit against. Anything that isn't one of these is
+ * probably the wrong colour for this app.
+ */
+@theme {
+  --font-display: 'Archivo Black', 'Space Grotesk', ui-sans-serif, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Courier Prime', ui-monospace, monospace;
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+
+  --color-paper: #ffffff;
+  --color-paper-tint: #f4f3ef;
+  --color-ink: #111111;
+  --color-ink-soft: #6d6a63;
+  --color-rule: #dedbd3;
+  --color-stage-blue: #7dd3fc;
+  --color-stage-yellow: #fde68a;
+
+  --color-script-ink: #111111;
+  --color-script-soft: #6d6a63;
+  --color-script-cue: #6d6a63;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark,
+[data-theme="dark"],
+html.dark {
+  color-scheme: dark;
+  --color-paper: #141413;
+  --color-paper-tint: #1e1e1b;
+  --color-ink: #f4f3ee;
+  --color-ink-soft: #b0aca3;
+  --color-rule: #2c2b27;
+  --color-stage-blue: #8be5ff;
+  --color-stage-yellow: #fef08a;
+
+  --color-script-ink: #d4d0c7;
+  --color-script-soft: #c2c1be;
+  --color-script-cue: #9e9a91;
+}
+
+html {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/**
+ * Small mono capitals, the workhorse label of the layout: deck lines, field
+ * names, status. Editorial furniture rather than UI chrome.
+ */
+@utility label-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/** Text action in a hairline frame. */
+@utility btn-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+@utility btn-rule-hover {
+  &:hover:not(:disabled) {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+}
+
+/** The same action, but the one you're meant to press. */
+@utility btn-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  cursor: pointer;
+  transition: opacity 120ms ease;
+  &:hover:not(:disabled) {
+    opacity: 0.82;
+  }
+}

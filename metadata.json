@@ -1,0 +1,8 @@
+{
+  "name": "Remix Table Read",
+  "description": "Upload a script and hear it performed. Each character is cast to a voice of their own, and you direct how the scene is played — the words never change, only the delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
